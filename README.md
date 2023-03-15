@@ -67,4 +67,26 @@ beecrowd=# \i docker-entrypoint-initdb.d/restart.sql
 
 Para acessar o pgadmin basta ir no seu navegador e digitar o ip **127.0.0.1**,
 pode demorar um pouco para carregar a página. Para fazer o login use as 
-credenciais das variáveis de ambiente do **docker-compose.yml**.
+credenciais das variáveis de ambiente do [docker-compose.yml](docker-compose.yml).
+
+# Questões especiais
+
+![Conjunto de questões de sql menos resolvidas](assets/menos_resolvidas.png)
+
+Estas questões em destaque estão entre as menos resolvidas da seção de sql e 
+possuem a mesma base de dados. Creio que isto ocorre devido à grande quantidade 
+de tabelas que estas questões envolvem, o que pode tornar meio confusa a
+compreensão dos relacionamentos. Diante disto, tomei a liberdade de modelar
+o diagrama entidade relacionamento do problema. 
+
+Dica: para juntar as tabelas que envolvem empregado e vencimento ou empregado e 
+desconto use [LEFT JOIN ou RIGHT JOIN](https://www.devmedia.com.br/clausulas-inner-join-left-join-e-right-join-no-sql-server/18930).
+
+![Diagrama Entidade Relacionamento](assets/ER_DIAGRAM.png)
+
+## The payback
+
+A principal 'sacada' para resolver esta questão envolve o conceito de
+[window functions](https://www.postgresql.org/docs/current/tutorial-window.html).
+Pesquise também sobre o comando **ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT
+ROW**. [IBM REFERENCE](https://www.ibm.com/docs/en/informix-servers/14.10?topic=expressions-over-clause-olap-window)
