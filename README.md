@@ -1,6 +1,6 @@
 # Beecrowd Postgresql
 
-![postgresql logo](assets/postgres_logo.png)
+<img alt="postgresql logo" src="assets/postgres_logo.png" style="max-height:450px;">
 
 # Sobre o repositório
 
